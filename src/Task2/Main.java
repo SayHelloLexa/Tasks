@@ -2,13 +2,9 @@ package Task2;
 import java.io.*;
 import java.util.*;
 
-public class  Main{
-
+public class  Main {
     public static void main(String[] args) throws IOException {
         List<String> words = new ArrayList<>();
-        List<String> maxLengthWords = new ArrayList<>();
-        int maxLength = 0;
-
         BufferedReader reader = new BufferedReader(new FileReader("/media/alex/TOSHIBA EXT/prog/src/Task2/file.txt"));
         String line;
 
@@ -18,6 +14,11 @@ public class  Main{
                 words.add(word);
             }
         }
+        findMaxLengthWords(words);
+    }
+    public static void findMaxLengthWords(List<String> words) {
+        int maxLength = 0;
+        List<String> maxLengthWords = new ArrayList<>();
 
         for (String word : words) {
             if (word.length() > maxLength) {
@@ -35,5 +36,6 @@ public class  Main{
         }
     }
 }
+
 
 // сложность алгоритма O(n), т.к. линейно возрастает время с увеличением слов в файле.
